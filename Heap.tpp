@@ -75,6 +75,10 @@ void Heap<T>::insert(T value)
       std::swap(values[c_index], values[p_index]);
       c_index = p_index;
     }
+    else
+    {
+      break;
+    }
   }
 }
 
