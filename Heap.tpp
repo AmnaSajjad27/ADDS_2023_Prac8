@@ -72,7 +72,7 @@ void Heap<T>::insert(T value)
     if (values[c_index] < values[p_index])
     {
       // swap/ heapify
-      heapify(c_index);
+      std::swap(values[c_index], values[p_index]);
       c_index = p_index;
     }
     else
