@@ -61,7 +61,7 @@ void Heap<T>::insert(T value)
   // set the index to next node
   values.push_back(value);
   int c_index = values.size() - 1;
-
+  // initalise paretnt index 
   int p_index = 0;
 
   while(c_index > 0)
@@ -77,6 +77,7 @@ void Heap<T>::insert(T value)
     }
     else
     {
+      // break out of loop if no need to heapify 
       break;
     }
   }
@@ -90,6 +91,7 @@ template <typename T>
 void Heap<T>::remove(T value) 
 {
   // TO BE IMPLEMENTED
+  // set to -1 so we can check later if we could find the thing to remove
   int i = -1;
   for (int index = 0; index < values.size(); i++)
   {
@@ -99,10 +101,12 @@ void Heap<T>::remove(T value)
       break;
     }
   }
+  // if target not found 
   if (i == -1)
   {
     return;
   }
+  // swap with the last node and then heapify to restore heap property
   std::swap(values[i], values[values.size() - 1]);
   values.pop_back();
   heapify(i);
@@ -116,10 +120,12 @@ template <typename T>
 T Heap<T>::getMin() 
 {
   // TO BE IMPLEMENTED
+  // if empty then return 
   if (values.empty())
   {
     return T();
   }
+  // min heap, first value is smallest
   return values[0];
 }
 
