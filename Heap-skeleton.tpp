@@ -55,8 +55,31 @@ Heap<T>::Heap(std::vector<T> start_values) {
 /*******************************/
 
 template <typename T>
-void Heap<T>::insert(T value) {
-   // TO BE IMPLEMENTED
+void Heap<T>::insert(T value) 
+{
+  // TO BE IMPLEMENTED
+  // set the index to next node
+  values.push_back(value);
+  int c_index = values.size() - 1;
+
+  int p_index = 0;
+
+  while(c_index > 0)
+  {
+    // for child at index c, their parent is at floor((c-1)/2)
+    p_index = floor((c_index - 1) / 2);
+
+    if (values[c_index] < values[p_index])
+    {
+      // swap/ heapify
+      heapify(c_index);
+      c_index = p_index;
+    }
+    else
+    {
+      break;
+    }
+  }
 }
 
 /*******************************/
