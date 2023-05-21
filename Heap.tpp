@@ -87,8 +87,25 @@ void Heap<T>::insert(T value)
 /*******************************/
 
 template <typename T>
-void Heap<T>::remove(T value) {
+void Heap<T>::remove(T value) 
+{
   // TO BE IMPLEMENTED
+  int i = -1;
+  for (int index = 0; index < values.size(); i++)
+  {
+    if (values[index] == value)
+    {
+      i = index;
+      break;
+    }
+  }
+  if (i == -1)
+  {
+    return;
+  }
+  std::swap(values[i], values[values.size() - 1]);
+  values.popback();
+  heapify(i);
 }
 
 /*******************************/
@@ -96,8 +113,14 @@ void Heap<T>::remove(T value) {
 /*******************************/
 
 template <typename T>
-T Heap<T>::getMin() {
+T Heap<T>::getMin() 
+{
   // TO BE IMPLEMENTED
+  if (values.empty())
+  {
+    return T();
+  }
+  return values[0];
 }
 
 /*******************************/
