@@ -69,7 +69,6 @@ void Heap<T>::insert(T value)
     // for child at index c, their parent is at floor((c-1)/2)
     p_index = floor((c_index - 1) / 2);
 
-    /*
     if (values[c_index] < values[p_index])
     {
       // swap/ heapify
@@ -81,12 +80,14 @@ void Heap<T>::insert(T value)
       // break out of loop if no need to heapify 
       break;
     }
-    */
+  
+   /*
    // use heapify, dont swap
    for (int i = p_index; i >= 0; i--)
    {
     heapify(i);
    }
+   */
   }
 }
 
