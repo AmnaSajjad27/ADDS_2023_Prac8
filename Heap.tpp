@@ -104,7 +104,7 @@ void Heap<T>::remove(T value)
     return;
   }
   std::swap(values[i], values[values.size() - 1]);
-  values.popback();
+  values.pop_back();
   heapify(i);
 }
 
